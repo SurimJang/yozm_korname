@@ -1,20 +1,19 @@
 ### Requirements
-
 ## General
 import json
 import urllib.request as req
 import math
-#import datetime as dt
 import numpy as np
 import pandas as pd
-pd.set_option('display.max_columns', None) #최종본에서 삭제
 from tqdm import tqdm
 #ADD: DB
 
 
 ### Functions
 
-def CollectData(year='2022', gender='t', page='1'):
+#TODO: def checker - Update data when the difference between the latest data and the present is more than one month
+
+def collector(year='2022', gender='t', page='1'):
     """
     #TODO: year - add option (all, latest)
     #TODO: gender - add option (m, f)
@@ -53,9 +52,5 @@ def CollectData(year='2022', gender='t', page='1'):
             dfs.append(df)
         print(">> 총 {} pages 가져오기 성공!".format(pnum))
     return dfs
- 
 
-# Test
-a = CollectData('2022', 't', 'max')
-print(len(a))
 
