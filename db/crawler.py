@@ -22,8 +22,16 @@ def collector(year='2022', gender='t', page='1'):
     """
 
     def get_url(year, gender, page):
-        url = "https://www.namechart.kr/_next/data/B16uA2726JcnFyT53Iy3L/ko/chart/{y}.json?gender={g}&page={p}&year={y}".format(y=year, g=gender, p=page)
-        return url
+        url = "https://www.namechart.kr/_next/data/b8p-f0HrtjgJNesctd7KD/ko/chart/{y}.json?"
+        if year != None:
+            url = url + "year={y}".format(y=year)
+        if gender == 't':
+            pass
+        else:
+            url = url + "&gender={g}".format(g=gender)
+        if page != None:
+            url = url + "&page={p}".format(p=page)
+        return url  
 
     def page_num():
         url = get_url(year, gender, page='1')
@@ -36,9 +44,9 @@ def collector(year='2022', gender='t', page='1'):
     def crawling_df(url):
         url_open = req.urlopen(url)
         url_res = json.load(url_open)
-        data = pd.DataFrame.from_records(url_res['pageProps']['data']['items'])
-        data['year'] = url_res['pageProps']['data']['year']
-        return data[['year', 'ranking', 'prevRanking', 'name', 'total', 'male', 'female']]
+        df = pd.DataFrame.from_records(url_res['pageProps']['data']['items'])
+        df['year'] = url_res['pageProps']['data']['year']
+        return df[['year', 'ranking', 'name', 'total', 'male', 'female']]
 
     if page == 'max':
         pnum = page_num()
