@@ -3,13 +3,13 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 class DynamicRequest(object):
-    driver = None
     chrome_options = wd.ChromeOptions()
 
-    def __init__(self, path, options=None):
+    def __init__(self, options=None):
+        self.service = Service(ChromeDriverManager().install()) 
         self.options = ['--headless', '--disable-gpu', 'window-size=1920x1080']
         self._set_option(options)
-        self.driver = wd.Chrome(service=Service(ChromeDriverManager().install()), options=self.chrome_options)
+        self.driver = wd.Chrome(service=self.service, options=self.chrome_options)
 
     def _set_option(self, options):
         if options is not None:
