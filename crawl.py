@@ -2,6 +2,9 @@ from crawler import DynamicRequest
 from crawler.parser import namechart_parser
 from pprint import pprint
 
+#TODO: loop fn for page turn, set year
+#TODO: url list checker fn for duplication prevention
+
 url_list = {
         '2022': {
             'url': 'https://www.namechart.kr/chart/2022',
