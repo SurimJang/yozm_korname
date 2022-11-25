@@ -1,9 +1,8 @@
+import re
+from selenium.webdriver.common.by import By
+
 def namechart_parser(response=None):
-    import re
-    from selenium.webdriver.common.by import By
-
     data = []
-
     table = response.find_element(By.XPATH, '//*[@id="__next"]/div/div[2]/div[1]/div[3]/div[2]/table')
     tbody = table.find_element(By.TAG_NAME, "tbody")
     rows = tbody.find_elements(By.TAG_NAME, "tr")
@@ -28,5 +27,4 @@ def namechart_parser(response=None):
         }
  
         data.append(result)
- 
     return data
