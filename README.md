@@ -19,4 +19,5 @@
 - **이름 생성**
     - 음절 간 네트워크를 활용한 이름 생성
 
-<iframe width="768" height="432" src="https://miro.com/app/embed/uXjVP_V7h7o=/?pres=1&frameId=3458764539838851352&embedId=549234163447" frameborder="0" scrolling="no" allowfullscreen></iframe>
+![Flowchart](https://user-images.githubusercontent.com/18377883/204339395-ea398124-1195-4b1f-80b2-c3833f6445f5.jpg)
+
